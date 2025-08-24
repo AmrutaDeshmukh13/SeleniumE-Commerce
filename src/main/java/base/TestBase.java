@@ -31,14 +31,15 @@ public class TestBase {
 
     public static void initialization(){
         String browserName=prop.getProperty("browser");
-        if(browserName.equals("chrome")){
+        if(browserName.equals("firefox")){
          //   System.setProperty("webdriver.chrome.driver", "/Users/naveenkhunteta/Downloads/chromedriver");
-            driver = new ChromeDriver();
+            driver = new FirefoxDriver();
+
         }
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
         driver.get(prop.getProperty("url"));
     }
 

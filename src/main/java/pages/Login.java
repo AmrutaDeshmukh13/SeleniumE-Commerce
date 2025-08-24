@@ -5,6 +5,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebElement;
 public class Login extends TestBase{
 
+    @FindBy(xpath = "//a[text()='Log in']")
+    WebElement logInLnk;
     @FindBy(id="loginusername")
     WebElement username;
     @FindBy(id="loginpassword")
@@ -23,6 +25,7 @@ public class Login extends TestBase{
         return driver.getTitle();
     }
     public ProductSelection login(String un, String pwd){
+        logInLnk.click();
         username.sendKeys(un);
         password.sendKeys(pwd);
         logInBtn.click();
